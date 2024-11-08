@@ -13,7 +13,7 @@ public class PresupuestoRepository : IPresupuestoRepository
             connection.Open();
             command.Parameters.AddWithValue("@id", presupuesto.IdPresupuesto);
             command.Parameters.AddWithValue("@nombreDest", presupuesto.NombreDestinatario);
-            command.Parameters.AddWithValue("@fecha", DateTime.Now);
+            command.Parameters.AddWithValue("@fecha", DateTime.Now.ToString("yyyy-M-d"));
             command.ExecuteNonQuery();
             connection.Close();
         }

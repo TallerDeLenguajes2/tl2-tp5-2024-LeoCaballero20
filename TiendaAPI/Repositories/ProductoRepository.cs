@@ -72,6 +72,7 @@ public class ProductoRepository : IProductoRepository
         using (SqliteConnection connection = new(connectionString)) {
             SqliteCommand command = new(queryString, connection);
             connection.Open();
+            command.Parameters.AddWithValue("@id", id);
             using (SqliteDataReader reader = command.ExecuteReader()) {
                 while (reader.Read()) {
                     producto.IdProducto = reader.GetInt32(0);
